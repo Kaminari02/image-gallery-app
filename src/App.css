@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -9,4 +11,15 @@ a {
 .container {
   max-width: 1479px;
   margin: 0 auto;
+}
+
+.divider {
+  height: 16px;
+  background-color: #C4C4C4;
+}
+
+@media screen and (max-width: 768px) {
+  .divider {
+      display: none;
+  }
 }
