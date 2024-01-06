@@ -1,3 +1,5 @@
+/* Search Block */
+
 .search_container {
     background: url('../../assets/searchBox-bg.jpg') center/cover no-repeat;
     height: 253px;
@@ -48,7 +50,24 @@
     height: 23px;
 }
 
+/* Gallery Block */
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 114px 50px 50px 50px;
+}
+
+@media screen and (max-width: 1594px) {
+    /* Gallery Block */
+    .gallery {
+        padding-top: 70px;
+    }
+}
+
 @media screen and (max-width: 768px) {
+    /* Search Block */
     .search_container {
         height: 230px;
     }
@@ -59,5 +78,17 @@
     
     .input_block {
         padding: 0 25px;
+    }
+
+    /* Gallery Block */
+    .gallery {
+        padding: 50px 20px 50px 20px;
+    }
+}
+
+@media screen and (max-width: 667px){
+    .gallery {
+        padding-right: 0;
+        padding-left: 0;
     }
 }

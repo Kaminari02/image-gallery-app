@@ -12,7 +12,7 @@ function Home() {
 
     const getPhotos = async () => {
         try {
-            const response = await axios.get(`https://api.unsplash.com/photos/?page=${page}&client_id=${accessKey}`);
+            const response = await axios.get(`https://api.unsplash.com/photos/?page=${page}&per_page=9&client_id=${accessKey}`);
             setPhotos((prevState) => [...prevState, ...response.data]);
         } catch (error) {
             console.error(error);
@@ -51,7 +51,7 @@ function Home() {
             </div>
             <div className='divider'></div>
             {/* Photos Block */}
-            <div className='gallery'>
+            <div className='gallery container'>
                 {photos && photos.map((item) => {
                     return (
                         <ImageCard imgSource={item.urls.regular} alt={item.alt_description} key={item.id} />
