@@ -53,9 +53,24 @@
         margin-right: 0;
         margin-left: 15px;
     }
+
+    .imageCard {
+        height: 344px;
+    }
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 920px) {
+    .card {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+    .card:nth-child(n) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
     .card {
         max-width: 334px;
         max-height: 311px;
