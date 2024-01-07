@@ -54,6 +54,7 @@
 
 .gallery {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 114px 50px 5px 50px;
 }

@@ -10,7 +10,7 @@ function AppToolBar() {
                     <div className='header_logo'></div>
                 </NavLink>
                 <div className='btn_group'>
-                    <NavLink to='/search'>
+                    <NavLink to='/'>
                         <div className='search_logo'></div>
                     </NavLink>
                     <NavLink to='/favorites'>

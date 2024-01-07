@@ -1,0 +1,15 @@
+.favorites_title {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 84px;
+    text-align: center;
+    margin: 94px 0 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .favorites_title {
+        font-size: 36px;
+        line-height: 42px; 
+        margin: 40px 0 56px;
+    }
+}

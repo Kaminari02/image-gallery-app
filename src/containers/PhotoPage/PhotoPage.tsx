@@ -11,6 +11,8 @@ function PhotoPage() {
 
     const [photo, setPhoto] = useState<IPhoto>();
     const [isLoading, setIsLoading] = useState(false);
+    const [isAdded, setIsAdded] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     const getPhoto = async () => {
         try {
@@ -40,7 +42,30 @@ function PhotoPage() {
         } catch (error) {
             console.error(error);
         }
-    };
+    }
+
+    const showAlert = () => {
+        setIsVisible(true);
+        setTimeout(() => {
+            setIsVisible(false);
+        }, 5000);
+    }
+
+    const saveToFavorites = () => {
+        if (photo) {
+            const favoritesString = localStorage.getItem("favorites");
+            const favoritesArray = favoritesString ? JSON.parse(favoritesString) : [];
+            if (!favoritesArray.some((favPhoto: IPhoto) => favPhoto.id === photo.id)) {
+                const { id, urls, user, alt_description, links } = photo;
+                const photoProps = { id, urls, user, alt_description, links };
+                favoritesArray.push(photoProps);
+                localStorage.setItem("favorites", JSON.stringify(favoritesArray));
+                setIsAdded(true);
+            } else {
+                showAlert();
+            }
+        }
+    }
 
     useEffect(() => {
         getPhoto()
@@ -54,6 +79,11 @@ function PhotoPage() {
                         <img className='photo_img_bg' src={photo.urls.regular} alt={photo.alt_description} />
                     </div>
                     <div className='photo_container container'>
+                        {/* Alert */}
+                        <div className={`alert ${isVisible ? 'visible' : 'hidden'}`}>
+                            <span className="close_btn" onClick={() => setIsVisible(false)}>&times;</span>
+                            Картинка уже в избранном
+                        </div>
                         {/* Photo Header */}
                         <div className='photo_header'>
                             <div className='user_box'>
@@ -70,7 +100,7 @@ function PhotoPage() {
                                 </div>
                             </div>
                             <div className='btn_box'>
-                                <button className='add_fav_btn'>
+                                <button onClick={saveToFavorites} className='add_fav_btn'>
                                     <i className='fav_ic'></i>
                                 </button>
                                 <button onClick={downloadImage} className='download_btn'>
@@ -80,7 +110,6 @@ function PhotoPage() {
                             </div>
                         </div>
                         {/* Photo Body */}
-
                         <div className='photo_box'>
                             {isLoading && <div className='loader_position'>
                                 <span className="download_loader"></span>
