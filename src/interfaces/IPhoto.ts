@@ -1,8 +1,12 @@
 export interface IPhoto {
     id: string;
     user: {
-        username: string;
+        first_name: string;
+        last_name: string;
         instagram_username: string;
+        profile_image: {
+            medium: string;
+        }
     }
     urls: {
         regular: string;

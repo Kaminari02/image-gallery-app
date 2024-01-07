@@ -3,10 +3,10 @@ import './Home.css'
 import { IPhoto } from '../../interfaces/IPhoto';
 import axios from 'axios';
 import ImageCard from '../../components/ImageCard/ImageCard';
+import { accessKey } from '../../common/constants';
 
 function Home() {
 
-    const accessKey = 'xmPeytWKSUHPjnJBeaUUY2jlvRZEyFo-yb8hZK1QZvU';
     const [photos, setPhotos] = useState<IPhoto[]>([]);
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
@@ -66,7 +66,11 @@ function Home() {
             <div className='gallery container'>
                 {photos && photos.map((item) => {
                     return (
-                        <ImageCard imgSource={item.urls.regular} alt={item.alt_description} key={item.id + Math.random()} />
+                        <ImageCard 
+                            imageId={item.id}
+                            imgSource={item.urls.regular} 
+                            alt={item.alt_description} 
+                            key={item.id + Math.random()} />
                     )
                 })}
             </div>
