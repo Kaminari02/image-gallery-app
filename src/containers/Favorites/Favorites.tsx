@@ -8,7 +8,7 @@ function Favorites() {
 
     const favoritesString = localStorage.getItem("favorites");
     const favoritesArray = favoritesString ? JSON.parse(favoritesString) : [];
-    console.log(favoritesArray.length)
+
     return (
         <div>
             <div className='divider'></div>

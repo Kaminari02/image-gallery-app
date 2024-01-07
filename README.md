@@ -20,8 +20,6 @@
 2. npm run dev
 3. Перейти по эндпоинту
 
-### Ключ для unsplash-api
-
-Access Key: xmPeytWKSUHPjnJBeaUUY2jlvRZEyFo-yb8hZK1QZvU
+### unsplash-api
 
 * Данный api позволяет делать 50 запросов в час, после чего доступ на запросы закрывается до обнуления счетчика
