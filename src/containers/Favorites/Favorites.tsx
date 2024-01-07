@@ -16,7 +16,7 @@ function Favorites() {
             {favoritesArray.length === 0 ?
                     <p style={{fontSize: 20, fontWeight: 600, textAlign: 'center'}}>Нет избранных картинок. <NavLink to='/' style={{color: 'green'}}>Добавить..</NavLink></p>
             : null}
-            <div className='gallery container'>
+            <div className='gallery container fav_box'>
                 {favoritesArray && favoritesArray.map((item: IPhoto) => {
                     return (
                         <ImageCard
