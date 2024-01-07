@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+## gallery-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение - галерея фотографий
 
-Currently, two official plugins are available:
+## Команды
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Установка
 
-## Expanding the ESLint configuration
+Для установки приложения необходимо прописать следующие команды в терминал: 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. git clone REPO_SSH_KEY
+2. cd image-gallery-teleport
+3. npm i
 
-- Configure the top-level `parserOptions` property like this:
+### Запуск приложения
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Для запуска приложения необходимо прописать следующие команды в терминал:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. cd image-gallery-teleport
+2. npm run dev
+3. Перейти по эндпоинту
+
+### Ключ для unsplash-api
+
+Access Key: xmPeytWKSUHPjnJBeaUUY2jlvRZEyFo-yb8hZK1QZvU
+
+* Данный api позволяет делать 50 запросов в час, после чего доступ на запросы закрывается до обнуления счетчика
