@@ -7,14 +7,13 @@ import './PhotoPage.css'
 
 function PhotoPage() {
 
-    const { imageId } = useParams();
+    const { id } = useParams();
 
     const [photo, setPhoto] = useState<IPhoto>()
 
     const getPhoto = async () => {
         try {
-            // const response = await axios.get(`https://api.unsplash.com/photos/${imageId}?client_id=${accessKey}`);
-            const response = await axios.get(`https://api.unsplash.com/photos/9mmWQQcAZwQ?client_id=${accessKey}`);
+            const response = await axios.get(`https://api.unsplash.com/photos/${id}?client_id=${accessKey}`);
             setPhoto(response.data);
         } catch (error) {
             console.error(error);
@@ -36,7 +35,13 @@ function PhotoPage() {
                                 <img className='avatar_img' src={photo.user.profile_image.medium} alt="user profile photo" />
                                 <div>
                                     <p className='username_text'>{photo.user.first_name} {photo.user.last_name}</p>
-                                    <p className='social_username'>@{photo.user.instagram_username}</p>
+                                    <p className='social_username'>
+                                        {photo.user.instagram_username ?
+                                            '@' + photo.user.instagram_username :
+                                            photo.user.twitter_username ?
+                                            '@' + photo.user.twitter_username : null
+                                        }
+                                    </p>
                                 </div>
                             </div>
                             <div className='btn_box'>

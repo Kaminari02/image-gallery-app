@@ -50,6 +50,7 @@
     line-height: 35.16px;
     font-weight: 400;
     margin: 0;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 
 .social_username {
@@ -58,6 +59,7 @@
     line-height: 21.09px;
     font-weight: 400;
     margin: 0;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 
 .btn_box {
@@ -157,11 +159,13 @@
         color: #000;
         font-size: 18px;
         line-height: 21.09px;
+        text-shadow: none;
     }
 
     .social_username {
         color: #BDBDBD;
         font-size: 14px;
+        text-shadow: none;
         line-height: 16.71px;
     }
 
