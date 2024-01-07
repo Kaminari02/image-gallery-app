@@ -23,6 +23,8 @@
     padding: 0 40px 100px;
 }
 
+/* Photo Header */
+
 .photo_header {
     padding: 40px 0;
     display: flex;
@@ -113,6 +115,8 @@
     line-height: 23.44px;
 }
 
+/* Photo Body */
+
 .photo_box {
     position: relative;
     display: flex;
@@ -148,6 +152,8 @@
     .photo_container {
         padding: 0 20px 273px;
     }
+
+    /* Photo Header */
 
     .avatar_img {
         width: 48px;
@@ -201,6 +207,8 @@
     .download_btn_text {
         display: none;
     }
+
+    /* Photo Body */
 
     .photo_box {
         max-height: 550px;

@@ -22,6 +22,7 @@ function PhotoPage() {
     useEffect(() => {
         getPhoto()
     }, [])
+
     return (
         <>
             {photo &&
@@ -30,6 +31,7 @@ function PhotoPage() {
                         <img className='photo_img_bg' src={photo.urls.regular} alt={photo.alt_description} />
                     </div>
                     <div className='photo_container container'>
+                        {/* Photo Header */}
                         <div className='photo_header'>
                             <div className='user_box'>
                                 <img className='avatar_img' src={photo.user.profile_image.medium} alt="user profile photo" />
@@ -39,7 +41,7 @@ function PhotoPage() {
                                         {photo.user.instagram_username ?
                                             '@' + photo.user.instagram_username :
                                             photo.user.twitter_username ?
-                                            '@' + photo.user.twitter_username : null
+                                                '@' + photo.user.twitter_username : null
                                         }
                                     </p>
                                 </div>
@@ -54,6 +56,7 @@ function PhotoPage() {
                                 </button>
                             </div>
                         </div>
+                        {/* Photo Body */}
                         <div className='photo_box'>
                             <img className='photo_box_img' src={photo.urls.regular} alt={photo.alt_description} />
                             <i className='maximize_ic'></i>
