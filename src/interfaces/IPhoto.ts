@@ -11,6 +11,10 @@ export interface IPhoto {
     }
     urls: {
         regular: string;
+        full: string;
     }
     alt_description: string;
+    links: {
+        download_location: string; 
+    }
 }

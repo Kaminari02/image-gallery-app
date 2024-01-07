@@ -9,11 +9,12 @@ function Home() {
 
     const [photos, setPhotos] = useState<IPhoto[]>([]);
     const [page, setPage] = useState(1);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-
+    
     const getPhotos = async () => {
         try {
+            setIsLoading(true);
             const response = await axios.get(`https://api.unsplash.com/photos/?page=${page}&per_page=9&client_id=${accessKey}`);
             setPhotos((prevState) => [...prevState, ...response.data]);
             setIsLoading(false);
@@ -24,6 +25,7 @@ function Home() {
 
     const searchPhotos = async () => {
         try {
+            setIsLoading(true);
             const response = await axios.get(`https://api.unsplash.com/search/photos?query=${searchQuery}&page=${page}&per_page=9&client_id=${accessKey}`);
             setPhotos((prevState) => [...prevState, ...response.data.results]);
             setIsLoading(false);
@@ -45,14 +47,12 @@ function Home() {
         if (searchQuery) {
             setPage(1);
             setPhotos([]);
-            setIsLoading(true);
             searchPhotos();
         }
     };
 
     const handleScroll = () => {
         if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
-            setIsLoading(true);
             setPage((prevState) => prevState + 1);
         }
     }

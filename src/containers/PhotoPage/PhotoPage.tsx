@@ -9,7 +9,8 @@ function PhotoPage() {
 
     const { id } = useParams();
 
-    const [photo, setPhoto] = useState<IPhoto>()
+    const [photo, setPhoto] = useState<IPhoto>();
+    const [isLoading, setIsLoading] = useState(false);
 
     const getPhoto = async () => {
         try {
@@ -19,6 +20,28 @@ function PhotoPage() {
             console.error(error);
         }
     }
+
+    const downloadImage = async () => {
+        try {
+            if (photo) {
+                setIsLoading(true)
+                const response = await axios.get(`${photo.links.download_location}&client_id=${accessKey}`);
+                const imageUrl = response.data.url
+                const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+                const blob = new Blob([imageResponse.data], { type: 'image/jpeg' });
+                const downloadLink = document.createElement('a');
+                downloadLink.href = URL.createObjectURL(blob);
+                downloadLink.download = photo.id + '.jpg'
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                setIsLoading(false)
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     useEffect(() => {
         getPhoto()
     }, [])
@@ -50,14 +73,18 @@ function PhotoPage() {
                                 <button className='add_fav_btn'>
                                     <i className='fav_ic'></i>
                                 </button>
-                                <button className='download_btn'>
+                                <button onClick={downloadImage} className='download_btn'>
                                     <i className='download_ic'></i>
                                     <span className='download_btn_text'>Download</span>
                                 </button>
                             </div>
                         </div>
                         {/* Photo Body */}
+
                         <div className='photo_box'>
+                            {isLoading && <div className='loader_position'>
+                                <span className="download_loader"></span>
+                            </div>}
                             <img className='photo_box_img' src={photo.urls.regular} alt={photo.alt_description} />
                             <i className='maximize_ic'></i>
                         </div>
